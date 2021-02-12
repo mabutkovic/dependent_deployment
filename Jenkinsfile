@@ -1,4 +1,4 @@
-def list_projects = ["p1", "p2"]
+def list_projects = ["p1", "p2", "p3"]
 def list_environments = ["staging", "prod"]
 pipeline {
     agent any
