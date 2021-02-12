@@ -27,7 +27,7 @@ pipeline {
 
                             stage(list_projects[i] + '-' + list_environments[j] + ' deploy') {
                                 sh(script: "source /etc/profile; helm upgrade --set version=$SERVICE_1_VERSION_NUMBER " + list_projects[i] + "-" + list_environments[j] + "-service1-workflow $GITHUB_LINK_S1/service1-workflow-0.1.0.tgz -f $GITHUB_LINK_S1/service1-workflow/values." + list_projects[i] + "." + list_environments[j] + ".yaml")
-                                sh(script: "source /etc/profile; helm upgrade --set version=$SERVICE_2_VERSION_NUMBER --set SERVICE1_URL=http://" + list_project_names[i] + "-" + list_environments[j] + "-service1-svc:8080 " + list_projects[i] + "-" + list_environments[j] + "-service2-workflow $GITHUB_LINK_S2/service2-workflow-0.1.0.tgz -f $GITHUB_LINK_S2/service2-workflow/values." + list_environments[j] + "." + list_environments[j] + ".yaml")
+                                sh(script: "source /etc/profile; helm upgrade --set version=$SERVICE_2_VERSION_NUMBER --set SERVICE1_URL=http://" + list_project_names[i] + "-" + list_environments[j] + "-service1-svc:8080 " + list_projects[i] + "-" + list_environments[j] + "-service2-workflow $GITHUB_LINK_S2/service2-workflow-0.1.0.tgz -f $GITHUB_LINK_S2/service2-workflow/values." + list_projects[i] + "." + list_environments[j] + ".yaml")
                             }
 
                         }
